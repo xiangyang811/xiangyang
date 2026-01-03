@@ -108,7 +108,7 @@
             padding: 0 10px;
         }
 
-        /* 首页按钮容器 - 新增 */
+        /* 首页按钮容器 */
         .home-buttons {
             display: flex;
             flex-direction: column;
@@ -145,7 +145,7 @@
             color: white;
         }
 
-        /* 兑换码卡片特殊样式 - 文字和图标改为白色 */
+        /* 兑换码卡片特殊样式 */
         .code-feature-card {
             position: relative;
             background: linear-gradient(135deg, #ff5e8e, #ff9ec0);
@@ -341,28 +341,63 @@
             box-shadow: 0 15px 30px rgba(255, 94, 142, 0.4);
         }
 
-        /* 测试页面样式 */
+        /* 测试页面样式 - 修复布局层级 */
         .test-header {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: stretch;
             margin-bottom: 25px;
             padding-bottom: 20px;
             border-bottom: 2px dashed var(--light-pink);
-        }
-
-        .test-title {
-            font-size: 1.5rem;
-            color: var(--dark-pink);
-            margin-bottom: 15px;
+            gap: 15px;
             width: 100%;
-            text-align: center;
         }
 
+        /* 移除测试页面标题 */
+        .test-title {
+            display: none;
+        }
+
+        /* 测试页面头部顶部栏 - 修复层级 */
+        .test-header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        /* 返回按钮样式优化 */
+        .back-home-btn {
+            padding: 12px 20px;
+            background-color: var(--light-pink);
+            color: var(--dark-pink);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(255, 182, 193, 0.3);
+            order: 1;
+        }
+
+        .back-home-btn:hover {
+            background-color: #ffa5b9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 182, 193, 0.4);
+        }
+
+        /* 进度容器 - 修复层级 */
         .progress-container {
             width: 100%;
-            margin: 15px 0;
+            margin: 0;
             position: relative;
+            order: 2;
         }
 
         .progress-text {
@@ -639,12 +674,26 @@
         }
 
         /* 结果页面样式 */
+        .result-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px dashed var(--light-pink);
+            position: relative;
+        }
+
+        /* 移除结果页面标题 */
+        .result-title {
+            display: none;
+        }
+
         .result-container {
             background-color: var(--white);
             border-radius: 18px;
             box-shadow: var(--shadow-strong);
-            padding: 30px 20px;
-            margin-top: 25px;
+            padding: 25px 20px;
+            margin-top: 20px;
             text-align: center;
             animation: resultEntrance 1s ease-out;
             position: relative;
@@ -663,43 +712,30 @@
             }
         }
 
-        .result-header {
-            margin-bottom: 30px;
-        }
-
-        .result-title {
-            font-size: 1.8rem;
-            color: var(--dark-pink);
-            margin-bottom: 10px;
-            background: var(--pink-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
+        /* 灵魂类型视觉中心 - 移动到顶部 */
         .type-container {
             width: 100%;
-            margin: 0 auto 30px;
+            margin: 0 auto 25px;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            padding: 25px 20px;
+            padding: 20px 15px;
             background: linear-gradient(135deg, rgba(255, 94, 142, 0.05), rgba(255, 158, 192, 0.05));
             border-radius: 18px;
             border: 2px dashed var(--light-pink);
         }
 
         .type-icon-wrapper {
-            width: 140px;
-            height: 140px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             background: var(--pink-gradient);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             box-shadow: 0 10px 30px rgba(255, 94, 142, 0.3);
             position: relative;
             animation: float 3s ease-in-out infinite;
@@ -720,12 +756,12 @@
         }
 
         .type-icon {
-            font-size: 4rem;
+            font-size: 3.5rem;
             color: white;
         }
 
         .type-name {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 800;
             color: var(--dark-pink);
             line-height: 1.2;
@@ -749,9 +785,9 @@
         }
 
         .type-subtitle {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #666;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             max-width: 100%;
             margin-left: auto;
             margin-right: auto;
@@ -759,44 +795,47 @@
         }
 
         .result-description {
-            font-size: 1rem;
-            margin-bottom: 25px;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
             color: #555;
             max-width: 100%;
             margin-left: auto;
             margin-right: auto;
             line-height: 1.6;
-            padding: 20px;
+            padding: 15px;
             background-color: rgba(255, 182, 193, 0.1);
             border-radius: 12px;
             border-left: 4px solid var(--primary-pink);
         }
 
-        /* 雷达图容器样式 - 包含关系维度分析标题 */
+        /* 雷达图容器样式 - 修复响应式问题 */
         .radar-chart-container {
             width: 100%;
-            margin: 30px auto;
-            padding: 20px;
+            margin: 25px auto;
+            padding: 20px 15px;
             background: linear-gradient(135deg, rgba(255, 94, 142, 0.03), rgba(255, 158, 192, 0.05));
             border-radius: 18px;
             position: relative;
             overflow: visible;
             border: 1px solid rgba(255, 182, 193, 0.2);
             box-shadow: 0 8px 25px rgba(255, 94, 142, 0.1);
-            min-height: 420px;
+            min-height: 380px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* 关系维度分析标题样式 - 放在雷达图容器内 */
+        /* 关系维度分析标题样式 */
         .radar-title {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: var(--dark-pink);
-            margin: 0 0 25px 0;
+            margin: 0 0 20px 0;
             text-align: center;
             font-weight: 700;
             position: relative;
             display: block;
             width: 100%;
-            padding-bottom: 15px;
+            padding-bottom: 12px;
         }
 
         .radar-title::after {
@@ -827,13 +866,17 @@
             z-index: 0;
         }
 
+        /* 雷达图容器 - 响应式设计 */
         .radar-chart {
             position: relative;
-            width: 300px;
-            height: 300px;
-            margin: 0 auto;
+            width: 260px;
+            height: 260px;
             z-index: 2;
             overflow: visible;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
         }
 
         /* 雷达图背景网格 */
@@ -871,7 +914,7 @@
             height: 25%;
         }
 
-        /* 雷达图轴线 - 优化对齐 */
+        /* 雷达图轴线 */
         .radar-line {
             position: absolute;
             top: 50%;
@@ -888,21 +931,21 @@
             filter: drop-shadow(0 0 2px rgba(255, 94, 142, 0.2));
         }
 
-        /* 雷达图标签 - 优化位置 */
+        /* 雷达图标签 - 修复手机端溢出问题 */
         .radar-label {
             position: absolute;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--dark-pink);
             font-weight: 700;
             text-align: center;
-            width: 80px;
+            width: 70px;
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 240, 245, 0.95));
-            padding: 6px 8px;
-            border-radius: 10px;
+            padding: 5px 6px;
+            border-radius: 8px;
             box-shadow: 0 3px 12px rgba(255, 94, 142, 0.2);
             border: 1.5px solid rgba(255, 182, 193, 0.5);
             z-index: 3;
-            line-height: 1.2;
+            line-height: 1.1;
             word-wrap: break-word;
             backdrop-filter: blur(5px);
             transition: all 0.3s ease;
@@ -922,7 +965,7 @@
 
         /* 雷达图标签中的维度名称 */
         .dimension-name {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 700;
             color: var(--dark-pink);
             margin-bottom: 2px;
@@ -930,12 +973,12 @@
 
         /* 雷达图标签中的百分比 */
         .dimension-percent {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 800;
             color: var(--primary-pink);
             background: rgba(255, 94, 142, 0.1);
             padding: 1px 5px;
-            border-radius: 8px;
+            border-radius: 6px;
             margin-top: 1px;
         }
 
@@ -1043,15 +1086,15 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             background: var(--pink-gradient);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.2rem;
+            font-size: 1rem;
             box-shadow:
                 0 0 15px rgba(255, 94, 142, 0.5),
                 inset 0 0 8px rgba(255, 255, 255, 0.3);
@@ -1125,18 +1168,18 @@
             }
         }
 
-        /* 修复维度容器样式，解决内容超出问题 */
+        /* 修复维度容器样式 */
         .dimensions-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 15px;
-            margin-top: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 12px;
+            margin-top: 20px;
         }
 
         .dimension {
             background-color: var(--white);
-            padding: 18px 16px;
-            border-radius: 14px;
+            padding: 16px 14px;
+            border-radius: 12px;
             text-align: left;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             border: 1px solid rgba(255, 182, 193, 0.3);
@@ -1144,7 +1187,7 @@
             display: flex;
             flex-direction: column;
             height: 100%;
-            min-height: 120px;
+            min-height: 110px;
             overflow: hidden;
         }
 
@@ -1153,9 +1196,9 @@
             box-shadow: 0 8px 18px rgba(255, 94, 142, 0.15);
         }
 
-        /* 修复维度标题布局，解决百分比和文字重叠问题 */
+        /* 修复维度标题布局 */
         .dimension-title {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--dark-pink);
             margin-bottom: 8px;
             font-weight: 600;
@@ -1177,22 +1220,22 @@
             font-weight: 700;
             flex-shrink: 0;
             white-space: nowrap;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .dimension-description {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #666;
             line-height: 1.4;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             flex-grow: 1;
             overflow: hidden;
         }
 
         .dimension-bar {
-            height: 8px;
+            height: 6px;
             background-color: #e0e0e0;
-            border-radius: 4px;
+            border-radius: 3px;
             margin-top: auto;
             overflow: hidden;
             position: relative;
@@ -1201,7 +1244,7 @@
         .dimension-fill {
             height: 100%;
             background: var(--pink-gradient);
-            border-radius: 4px;
+            border-radius: 3px;
             width: 0%;
             transition: width 1.5s ease-in-out;
             position: relative;
@@ -1233,17 +1276,17 @@
         }
 
         .result-footer {
-            margin-top: 30px;
+            margin-top: 25px;
             padding-top: 20px;
             border-top: 2px dashed var(--light-pink);
         }
 
         .meme-quote {
             font-style: italic;
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--dark-pink);
             margin-bottom: 20px;
-            padding: 18px;
+            padding: 15px;
             background-color: rgba(255, 182, 193, 0.1);
             border-radius: 12px;
             position: relative;
@@ -1252,7 +1295,7 @@
 
         .meme-quote::before {
             content: "“";
-            font-size: 3rem;
+            font-size: 2.5rem;
             color: var(--light-pink);
             position: absolute;
             top: -10px;
@@ -1262,9 +1305,9 @@
 
         .relationship-tip {
             background: linear-gradient(135deg, rgba(255, 94, 142, 0.1), rgba(255, 158, 192, 0.1));
-            padding: 20px;
-            border-radius: 14px;
-            margin: 20px 0;
+            padding: 18px;
+            border-radius: 12px;
+            margin: 18px 0;
             text-align: left;
             border-left: 4px solid var(--primary-pink);
         }
@@ -1272,7 +1315,7 @@
         .relationship-tip h4 {
             color: var(--dark-pink);
             margin-bottom: 8px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -1280,15 +1323,15 @@
 
         .relationship-tip p {
             color: #555;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             line-height: 1.5;
         }
 
         .improvement-suggestions {
             background: linear-gradient(135deg, rgba(255, 158, 192, 0.1), rgba(255, 182, 193, 0.1));
-            padding: 20px;
-            border-radius: 14px;
-            margin: 20px 0;
+            padding: 18px;
+            border-radius: 12px;
+            margin: 18px 0;
             text-align: left;
             border-left: 4px solid var(--light-pink);
         }
@@ -1296,7 +1339,7 @@
         .improvement-suggestions h4 {
             color: var(--dark-pink);
             margin-bottom: 8px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -1309,7 +1352,7 @@
 
         .improvement-suggestions li {
             margin-bottom: 8px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             line-height: 1.5;
         }
 
@@ -1370,27 +1413,6 @@
             100% {
                 transform: rotate(360deg);
             }
-        }
-
-        .back-home-btn {
-            padding: 12px 20px;
-            background-color: var(--light-pink);
-            color: var(--dark-pink);
-            border: none;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-        }
-
-        .back-home-btn:hover {
-            background-color: #ffa5b9;
-            transform: translateY(-2px);
         }
 
         .heart-icon {
@@ -1481,7 +1503,7 @@
             font-size: 0.75rem;
         }
 
-        /* 兑换码弹窗样式 - 修改为粉色基调 */
+        /* 兑换码弹窗样式 */
         .code-modal {
             display: none;
             position: fixed;
@@ -1771,25 +1793,25 @@
                 font-size: 0.95rem;
             }
 
+            /* 平板设备测试页面布局优化 */
             .test-header {
                 flex-direction: row;
                 align-items: center;
+                gap: 20px;
             }
 
-            .test-title {
-                font-size: 1.8rem;
-                margin-bottom: 0;
+            .test-header-top {
                 width: auto;
-                text-align: left;
+                flex-shrink: 0;
             }
 
             .progress-container {
-                width: auto;
                 flex: 1;
-                margin: 0 30px;
+                margin: 0;
             }
 
             .back-home-btn {
+                order: 1;
                 margin-bottom: 0;
             }
 
@@ -1799,6 +1821,36 @@
 
             .question-title {
                 font-size: 1.3rem;
+            }
+
+            /* 平板设备雷达图尺寸调整 - 增大尺寸 */
+            .radar-chart {
+                width: 380px;
+                height: 380px;
+            }
+
+            .radar-chart-container {
+                min-height: 450px;
+            }
+
+            .radar-label {
+                font-size: 0.85rem;
+                width: 85px;
+                padding: 7px 9px;
+            }
+
+            .dimension-name {
+                font-size: 0.85rem;
+            }
+
+            .dimension-percent {
+                font-size: 0.8rem;
+            }
+
+            .radar-center {
+                width: 45px;
+                height: 45px;
+                font-size: 1.4rem;
             }
 
             .type-name {
@@ -1814,23 +1866,8 @@
                 font-size: 4.5rem;
             }
 
-            .result-title {
-                font-size: 2.2rem;
-            }
-
             .radar-title {
                 font-size: 2.2rem;
-            }
-
-            .radar-chart {
-                width: 340px;
-                height: 340px;
-            }
-
-            .radar-center {
-                width: 45px;
-                height: 45px;
-                font-size: 1.4rem;
             }
 
             .restart-btn {
@@ -1860,6 +1897,36 @@
                 font-size: 3rem;
             }
 
+            /* 桌面设备雷达图尺寸调整 - 进一步增大 */
+            .radar-chart {
+                width: 420px;
+                height: 420px;
+            }
+
+            .radar-chart-container {
+                min-height: 480px;
+            }
+
+            .radar-label {
+                font-size: 0.9rem;
+                width: 90px;
+                padding: 8px 10px;
+            }
+
+            .dimension-name {
+                font-size: 0.9rem;
+            }
+
+            .dimension-percent {
+                font-size: 0.85rem;
+            }
+
+            .radar-center {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
             .type-name {
                 font-size: 2.8rem;
             }
@@ -1871,17 +1938,6 @@
 
             .type-icon {
                 font-size: 5rem;
-            }
-
-            .radar-chart {
-                width: 360px;
-                height: 360px;
-            }
-
-            .radar-center {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
             }
         }
     </style>
@@ -1961,7 +2017,7 @@
         </div>
 
         <div class="home-content">
-            <!-- 获取兑换码卡片 - 文字和图标改为白色 -->
+            <!-- 获取兑换码卡片 -->
             <a href="https://xhslink.com/m/VBG910lgrY" target="_blank" class="feature-card code-feature-card">
                 <i class="fas fa-ticket-alt"></i>
                 <h3>获取兑换码</h3>
@@ -1999,10 +2055,13 @@
 
     <!-- 测试页面 -->
     <div class="container" id="test-page">
+        <!-- 修复测试页面头部布局 -->
         <div class="test-header">
-            <button class="back-home-btn" id="back-home-btn">
-                <i class="fas fa-arrow-left"></i> 返回首页
-            </button>
+            <div class="test-header-top">
+                <button class="back-home-btn" id="back-home-btn">
+                    <i class="fas fa-arrow-left"></i> 返回首页
+                </button>
+            </div>
 
             <div class="progress-container">
                 <div class="progress-text">
@@ -2013,8 +2072,6 @@
                     <div class="progress" id="test-progress"></div>
                 </div>
             </div>
-
-            <div class="test-title">灵魂契合度测试</div>
         </div>
 
         <div class="floating-hearts" id="floating-hearts">
@@ -2049,21 +2106,14 @@
 
     <!-- 结果页面 -->
     <div class="container" id="result-page">
-        <div class="test-header">
+        <div class="result-header">
             <button class="back-home-btn" id="back-home-from-result-btn">
                 <i class="fas fa-arrow-left"></i> 返回首页
             </button>
-
-            <div class="test-title">测试结果</div>
         </div>
 
         <div class="result-container" id="result-container">
-            <div class="result-header">
-                <h2 class="result-title">灵魂配对类型报告</h2>
-                <p>基于你们的回答，以下是你们的灵魂配对类型：</p>
-            </div>
-
-            <!-- 灵魂类型视觉中心 -->
+            <!-- 灵魂类型视觉中心 - 放在顶部 -->
             <div class="type-container">
                 <div class="type-icon-wrapper">
                     <div class="type-icon" id="type-icon">❤️</div>
@@ -2570,7 +2620,7 @@
             }
         ];
 
-        // 维度定义 - 增加详细描述
+        // 维度定义
         const dimensions = [
             {
                 id: "价值观契合度",
@@ -2614,7 +2664,7 @@
             }
         ];
 
-        // 灵魂类型定义（使用更优雅的表达方式）
+        // 灵魂类型定义
         const soulTypes = [
             {
                 id: 1,
@@ -2741,7 +2791,6 @@
 
             // 绑定事件
             document.getElementById('start-btn-top').addEventListener('click', function () {
-                // 检查是否已经验证过兑换码
                 if (checkAccess()) {
                     startTest();
                 } else {
@@ -2750,7 +2799,6 @@
             });
 
             document.getElementById('start-btn').addEventListener('click', function () {
-                // 检查是否已经验证过兑换码
                 if (checkAccess()) {
                     startTest();
                 } else {
@@ -3081,7 +3129,7 @@
             improvementTipsHTML += '</ul>';
             document.getElementById('improvement-suggestions').innerHTML = improvementTipsHTML;
 
-            // 渲染维度分析 - 修复后的版本
+            // 渲染维度分析
             const dimensionsContainer = document.getElementById('dimensions-container');
             dimensionsContainer.innerHTML = '';
 
@@ -3130,7 +3178,7 @@
             }, 500);
         }
 
-        // 绘制增强版雷达图 - 修复版（优化标签位置和对齐）
+        // 绘制增强版雷达图 - 修复响应式问题
         function drawEnhancedRadarChart(dimensionScores) {
             const radarChart = document.getElementById('radar-chart');
             radarChart.innerHTML = '';
@@ -3151,15 +3199,29 @@
                 radarChart.appendChild(line);
             }
 
-            // 创建SVG容器
+            // 创建SVG容器 - 响应式尺寸
             const svgNS = "http://www.w3.org/2000/svg";
             const svg = document.createElementNS(svgNS, "svg");
-            svg.setAttribute("width", "300");
-            svg.setAttribute("height", "300");
-            svg.setAttribute("viewBox", "0 0 300 300");
+
+            // 根据设备宽度动态设置SVG尺寸
+            const isMobile = window.innerWidth < 768;
+            const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+            let svgSize;
+
+            if (isMobile) {
+                svgSize = 260;
+            } else if (isTablet) {
+                svgSize = 380;
+            } else {
+                svgSize = 420;
+            }
+
+            svg.setAttribute("width", svgSize);
+            svg.setAttribute("height", svgSize);
+            svg.setAttribute("viewBox", `0 0 ${svgSize} ${svgSize}`);
             svg.setAttribute("class", "radar-data-area");
 
-            // 创建渐变定义 - 增强版
+            // 创建渐变定义
             const defs = document.createElementNS(svgNS, "defs");
 
             // 主要渐变
@@ -3221,9 +3283,18 @@
             polygon.setAttribute("stroke", "url(#pinkGradient)");
 
             let points = '';
-            const centerX = 150;
-            const centerY = 150;
-            const maxRadius = 110; // 减小半径，为标签腾出空间
+            const centerX = svgSize / 2;
+            const centerY = svgSize / 2;
+            let maxRadius;
+
+            // 根据设备设置不同的半径
+            if (isMobile) {
+                maxRadius = 90;
+            } else if (isTablet) {
+                maxRadius = 130;
+            } else {
+                maxRadius = 140;
+            }
 
             // 存储每个数据点的位置，用于标签定位
             const dataPoints = [];
@@ -3290,8 +3361,8 @@
             // 将SVG添加到雷达图容器
             radarChart.appendChild(svg);
 
-            // 创建维度标签 - 修复版，确保标签与轴线对齐
-            const labelRadius = maxRadius * 1.35; // 标签放在雷达图外围
+            // 创建维度标签 - 修复响应式问题
+            const labelRadius = maxRadius * 1.25; // 减小标签半径，避免溢出
 
             for (let i = 0; i < dataPoints.length; i++) {
                 const { angle, score, dimension } = dataPoints[i];
@@ -3304,44 +3375,32 @@
                     <div class="dimension-percent">${score}%</div>
                 `;
 
-                // 标签位置计算（确保与轴线对齐）
+                // 标签位置计算
                 const x = centerX + Math.sin(angle) * labelRadius;
                 const y = centerY - Math.cos(angle) * labelRadius;
 
-                // 根据角度智能调整标签位置，确保不重叠且美观
+                // 根据角度智能调整标签位置，避免重叠
                 let transformX = '-50%';
                 let transformY = '-50%';
 
                 // 将角度转换为0-360度范围
                 const angleDeg = i * angleStep;
 
-                // 更精细的角度划分，确保标签与轴线对齐且不重叠
+                // 优化标签位置
                 if (angleDeg >= 0 && angleDeg < 45) {
-                    // 0-45度：右下区域，标签向右下偏移
+                    // 0-45度：右下区域
                     transformX = '0%';
                     transformY = '0%';
-                } else if (angleDeg >= 45 && angleDeg < 90) {
-                    // 45-90度：左下区域
+                } else if (angleDeg >= 45 && angleDeg < 135) {
+                    // 45-135度：左下和左上区域
                     transformX = '-100%';
-                    transformY = '0%';
-                } else if (angleDeg >= 90 && angleDeg < 135) {
-                    // 90-135度：左上区域
-                    transformX = '-100%';
-                    transformY = '-100%';
-                } else if (angleDeg >= 135 && angleDeg < 180) {
-                    // 135-180度：左上区域
+                    transformY = angleDeg < 90 ? '0%' : '-100%';
+                } else if (angleDeg >= 135 && angleDeg < 225) {
+                    // 135-225度：左上区域
                     transformX = '-100%';
                     transformY = '-100%';
-                } else if (angleDeg >= 180 && angleDeg < 225) {
-                    // 180-225度：左上区域
-                    transformX = '-100%';
-                    transformY = '-100%';
-                } else if (angleDeg >= 225 && angleDeg < 270) {
-                    // 225-270度：右上区域
-                    transformX = '0%';
-                    transformY = '-100%';
-                } else if (angleDeg >= 270 && angleDeg < 315) {
-                    // 270-315度：右上区域
+                } else if (angleDeg >= 225 && angleDeg < 315) {
+                    // 225-315度：右上区域
                     transformX = '0%';
                     transformY = '-100%';
                 } else {
